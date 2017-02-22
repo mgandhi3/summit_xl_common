@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <remap from="cmd_vel" to="/move_base/cmd_vel" />
+  <remap from="cmd_vel" to="/summit_xl_control/cmd_vel" />
   
   <!-- Run move_base -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">

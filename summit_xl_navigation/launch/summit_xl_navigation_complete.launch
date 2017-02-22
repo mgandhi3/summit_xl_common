@@ -9,5 +9,8 @@
   <!-- Do SLAM with gmapping-->
   <include file="$(find summit_xl_navigation)/launch/summit_xl_gmapping.launch" />
 
+  <!-- Start move_base with no map to plan and execute trajectories-->
+  <include file="$(find summit_xl_navigation)/launch/move_base_nomap.launch"/>
+
 
 </launch>
