@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" > <!--output="screen"-->
       <!-- simulation remap from="scan" to="/hokuyo_laser_topic"/ -->
       <!-- real -->
       <!-- remap from="scan" to="/scan_filtered"/ -->
