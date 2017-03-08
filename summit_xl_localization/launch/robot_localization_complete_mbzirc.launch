@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- roslaunch arguments -->
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="wait_for_datum" default="false" />
+  <!-- Transform from odom to base_footprint (IMU and odometry) -->
+  <include file="$(find summit_xl_localization)/launch/robot_localization_odom_mbzirc.launch" />
+
+  <!-- Transform from world to odom (IMU, odometry and GPS) -->
+  <include file="$(find summit_xl_localization)/launch/robot_localization_world_mbzirc.launch" />
+
+  <!-- Do SLAM with gmapping-->
+  <!--include file="$(find summit_xl_localization)/launch/slam_gmapping_summit_xl.launch" /-->
+
+  <!-- Get GPS odometry -->
+  <node pkg="xwam" name="pixhawk_gps_republisher" type="pixhawk_gps_republisher.py"/>
+
+  <node pkg="xwam" name="pixhawk_imu_republisher" type="pixhawk_imu_covariance_republisher.py"/>
+
+  <node pkg="xwam" name="odom_republisher" type="odom_velocity_republisher.py"/>
+
+
+  <include file="$(find summit_xl_localization)/launch/navsat_transform_node_mbzirc.launch">
+	<arg name="wait_for_datum" value="$(arg wait_for_datum)" />
+  </include>
+
+</launch>
