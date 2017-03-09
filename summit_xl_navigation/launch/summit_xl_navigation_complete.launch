@@ -3,11 +3,11 @@
 
   <!-- roslaunch arguments -->
   <arg name="debug" default="false"/>
-  <arg name="gui" default="true"/>
+  <arg name="gui" default="false"/>
   <arg name="wait_for_datum" default="false" />
 
   <!-- Do SLAM with gmapping-->
-  <include file="$(find summit_xl_navigation)/launch/summit_xl_gmapping.launch" />
+  <!-- <include file="$(find summit_xl_navigation)/launch/summit_xl_gmapping.launch" /> -->
 
   <!-- Start move_base with no map to plan and execute trajectories-->
   <include file="$(find summit_xl_navigation)/launch/move_base_nomap.launch"/>

@@ -16,13 +16,13 @@
       <!-- if robot_localization is performing local fusing, ie is calculating the odometry, :
         world_frame and map_frame MUST BE set to the same frame
       -->
-      <param name="map_frame" value="map"/>
-      <param name="world_frame" value="map"/>
+      <param name="map_frame" value="odom"/>
+      <param name="world_frame" value="odom"/>
 
       <!-- use the previously fused odometry, which integrates already the robot odometry and imu -->
       <param name="odom0" value="/odometry/filtered_odom"/>
-      <!--<param name="imu0" value="/imu_data"/> -->     
-      
+      <!--<param name="imu0" value="/imu_data"/> -->
+
       <!-- use the "gps odom" from navsat_transform_node, which has the position in the odom frame -->
       <param name="odom1" value="/odometry/gps"/>
 
@@ -52,7 +52,7 @@
       <!-- <param name="imu0_differential" value="false"/> -->
       <!-- odom1_differential must be false, because it has absolute position -->
       <param name="odom1_differential" value="false"/>
-      
+
       <!-- odom0_relative could be true -->
       <param name="odom0_relative" value="false"/>
       <!--<param name="imu0_relative" value="false"/>-->
@@ -83,5 +83,3 @@
    </node>
 
 </launch>
-
-
